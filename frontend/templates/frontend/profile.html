@@ -1,0 +1,33 @@
+{% extends 'frontend/index.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- <div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Announcement:</strong> Login temporarily disabled due maintenance.
+</div> -->
+
+<p>a</p>
+<p>b</p>
+<p>c</p>
+<p>d</p>
+<p>a</p>
+<p>b</p>
+<p>c</p>
+<p>d</p>
+
+
+<div style="margin-top:10px" class="form-group">
+
+     <li>{{user.username}}</li>
+     <li>{{user.first_name}}</li>
+     <li>{{user.last_name}}</li>
+     <li>{{user.birth_date}}</li>
+     <li>{{user.email}}</li>
+     
+
+</form>
+
+
+{% endblock %}

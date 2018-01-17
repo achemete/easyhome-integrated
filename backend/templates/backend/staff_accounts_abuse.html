@@ -1,0 +1,42 @@
+{% extends 'backend/backend.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Announcement:</strong> In order to ban users, your user has to belong to the staff group, otherwise you will be redirected to the second-factor login.
+</div>
+<table class="table">
+        <thead>
+            <tr>
+                <th>UID</th>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Staff?</th>
+                <th>Active?</th>
+                <th style="text-align: center">Operation</th>
+            </tr>
+        </thead>
+        <tbody id="t-algs">
+        	{% for user in user %}
+            <tr>
+                <th scope="row">{{ user.pk }}</th>
+                
+                <td>{{ user.username }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.is_staff }}</td>
+                <td>{{ user.is_active }}</td>
+                <td style="text-align: center"><a alt="Ban" href="{% url 'backend:staff_ban_user' pk=user.pk %}"><span style="color: red" class="fa fa-ban fa-lg"></span></a>&nbsp;&nbsp;<a href="{% url 'backend:staff_unban_user' pk=user.pk %}"><span style="color: green" class="fa fa-check fa-lg"></span></a>&nbsp;&nbsp;<a href="{% url 'backend:del_user' pk=user.pk %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+

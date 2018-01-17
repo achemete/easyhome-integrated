@@ -1,0 +1,117 @@
+{% extends 'backend/backend.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<link href="{% static '../static/css/backendStyle.css' %}" rel="stylesheet">    
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="container-fluid">
+        <!-- center left-->
+        <h3>Landing Page</h3>
+        <hr>
+        <h4>Add content</h4>
+        <div class="col-xs-12 col-sm-12 col-lg-12">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="div-square">
+              <a href="{% url 'backend:landing_new_apartment' %}">
+                <i class="fa fa-bed fa-3x"></i>
+                <h5><strong>Left</strong> column (apartments)</h5>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="div-square">
+              <a href="{% url 'backend:landing_new_attraction' %}">
+                <i class="fa fa-camera-retro fa-3x"></i>
+                <h5><strong>Middle</strong> column (attractions)</h5>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="div-square">
+              <a href="{% url 'backend:landing_new_restaurant' %}">
+                <i class="fa fa-cutlery fa-3x"></i>
+                <h5><strong>Right</strong> column (restaurants)</h5>
+              </a>
+            </div>
+          </div>
+</div>
+<p> &nbsp;</p>
+<hr>
+
+<h4>Restaurant's column</h4>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Publisher</th>
+      <th scope="col">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for restaurant in restaurants %}
+    <tr>
+      <th scope="row">{{ restaurant.pk }}</th>
+      <td><a href="{% url 'backend:landing_restaurant_detail' pk=restaurant.pk %}">{{ restaurant.title }}</td>
+      <td>{{ restaurant.published_date }}</td>
+      <td>@{{ restaurant.author }}</td>
+      <td> <a class="glyphicon glyphicon-pencil" alt="Edit {{ restaurant.title }}" href="{% url 'backend:landing_restaurant_edit' pk=restaurant.pk %}"></a>
+        <a class="glyphicon glyphicon-trash" href="{% url 'backend:landing_restaurant_remove' pk=restaurant.pk %}"></a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h4>Attraction's column</h4>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Publisher</th>
+      <th scope="col">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for attraction in attractions %}
+    <tr>
+      <th scope="row">{{ attraction.pk }}</th>
+      <td><a href="{% url 'backend:landing_attraction_detail' pk=attraction.pk %}">{{ attraction.title }}</td>
+      <td>{{ attraction.published_date }}</td>
+      <td>@{{ attraction.author }}</td>
+      <td> <a class="glyphicon glyphicon-pencil" alt="Edit {{ attraction.title }}" href="{% url 'backend:landing_attraction_edit' pk=attraction.pk %}"></a>
+        <a class="glyphicon glyphicon-trash" href="{% url 'backend:landing_attraction_remove' pk=attraction.pk %}"></a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h4>Apartment's column</h4>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Publisher</th>
+      <th scope="col">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for apartment in apartments %}
+    <tr>
+      <th scope="row">{{ apartment.pk }}</th>
+      <td><a href="{% url 'backend:landing_apartment_detail' pk=apartment.pk %}">{{ apartment.title }}</td>
+      <td>{{ apartment.published_date }}</td>
+      <td>@{{ apartment.author }}</td>
+      <td> <a class="glyphicon glyphicon-pencil" alt="Edit {{ apartment.title }}" href="{% url 'backend:landing_apartment_edit' pk=apartment.pk %}"></a>
+        <a class="glyphicon glyphicon-trash" href="{% url 'backend:landing_apartment_remove' pk=apartment.pk %}"></a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+.div-square {
+    padding:5px;
+    border:2px double #e1e1e1;
+    -webkit-border-radius:8px;
+   -moz-border-radius:8px;
+    border-radius:4px;
+    margin:5px;
+    text-align: center;
+}
+
+.div-square> a,.div-square> a:hover {
+    color:#6E6E6E;
+    text-decoration:none;
+}
+.u-del a p{
+	display:none;
+}
+.u-del a:hover p{
+	display:block;
+}
+.staffMember{
+	display: none;
+}
+
+.showMember:hover .staffMember{
+	display : block;
+}

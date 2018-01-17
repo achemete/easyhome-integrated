@@ -1,0 +1,66 @@
+{% extends 'frontend/index.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<section id="main">
+<!--header strip end here-->
+<!--about start here-->
+<div class="about">
+	<div class="container">
+		<div class="about-main">
+			<!-- <h4>About us</h4> -->
+			{% for pageTitle in pageTitles %}
+				<h4>{{ pageTitle.title }}</h4>
+			{% endfor %}
+			<div class="col-md-6 about-left">
+				<a href="#"><img src="{% static '../static/images/ab.jpg' %}" alt="" class="img-responsive"></a>
+			</div>
+			<div class="col-md-6 about-rigth">
+				{% for presentation in presentations %}
+				<h3><a href="single.html">{{ presentation.title }}</a></h3>
+				<p>{{ presentation.text|linebreaksbr }}</p>
+				{% endfor %}
+			</div>
+		  <div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--about end here-->
+<!--about team start here-->
+<div class="team">
+	<div class="container">
+		<div class="team-main">
+			{% for team in teams %}
+				<h4>{{ team.title }}</h4>
+			{% endfor %}
+			<div class="col-md-3 team-grid">
+				<img src="{% static '../static/images/t1.jpg' %}" alt="" class="img-responsive">
+				{% for memberone in memberones %}
+				<h3><a class="popup-with-zoom-anim" href="#small-dialog">{{ memberone.title }}</a></h3>
+				<p>{{ memberone.text|linebreaksbr }}</p>
+				{% endfor %}
+			</div>
+			<div class="col-md-3 team-grid">
+				<img src="{% static '../static/images/t2.jpg' %}" alt="" class="img-responsive">
+				{% for membertwo in membertwos %}
+				<h3><a class="popup-with-zoom-anim" href="#small-dialog">{{ membertwo.title }}</a></h3>
+				<p>{{ membertwo.text|linebreaksbr }}</p>
+				{% endfor %}
+			</div>
+			<div class="col-md-3 team-grid">
+				<img src="{% static '../static/images/t3.jpg' %}" alt="" class="img-responsive">
+				{% for memberthree in memberthrees %}
+				<h3><a class="popup-with-zoom-anim" href="#small-dialog">{{ memberthree.title }}</a></h3>
+				<p>{{ memberthree.text|linebreaksbr }}</p>
+				{% endfor %}
+			</div>
+			<div class="col-md-3 team-grid">
+				<img src="{% static '../static/images/t4.jpg' %}" alt="" class="img-responsive">
+				<h3><a class="popup-with-zoom-anim" href="#small-dialog">Ming Yuan</a></h3>
+				<p>She is from China and loves to write.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

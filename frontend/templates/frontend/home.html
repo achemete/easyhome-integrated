@@ -1,0 +1,390 @@
+{% extends 'frontend/index.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="contant">
+	<div class="container">
+		<div class="contant-main">
+			  <div class="col-md-4 content-grid-1 bg-one">
+			  	<div class="content-grid-text">
+			  		{% for apartment in apartments %}
+						<h3>{{ apartment.title }}</h3>
+						<p>{{ apartment.text|linebreaksbr }}</p>
+						<!-- <p>{{ section.text|safe }}</p> -->
+					{% endfor %}
+			  		<h3>Trendy Houses</h3>
+			  		<p> Find out our most viewed houses and choose the one that fits your expectations for a real confortable experience with the persons you love or just the company of the place you are in</p>
+			  		 <div class=" ser-grid">
+		   				<a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-home"> </a>
+		   			  </div>
+			  		<div class="contant-bwn">
+							<div class="search-wrapper">
+								<input type="text" value="Type a City" class="search-field" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type a City';}"/>
+								<input type="submit" class="search-img" value="">
+							</div>
+			  			<a href="single.html" class="button push">View</a>
+			  		</div>
+			  	</div>
+			  </div>
+			  <div class="col-md-4 content-grid-1 bg-two">
+			  	<div class="content-grid-text">
+			  		{% for attraction in attractions %}
+						<h3>{{ attraction.title }}</h3>
+						<p>{{ attraction.text|linebreaksbr }}</p>
+						<!-- <p>{{ section.text|safe }}</p> -->
+					{% endfor %}
+			  		<h3>Attractions</h3>
+			  		<p> As an extra, our websites helps you to find every attraction in each city. <br>dive into the art that the city offers you, relive the history, behold the magnificent art masterpiece of the old Artists and enjoy the view of the most famous constructions of the city<br></p>
+			  		<div class=" ser-grid">
+		   				<a href="#" class="hi-icon hi-icon-archive glyphicon"><i class="fa fa-map-marker fa-2x" style="icon"aria-hidden="true"></i></a>
+		   			  </div>
+							<div class="contant-bwn">
+								<div class="search-wrapper">
+									<input type="text" value="Type a City" class="search-field" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type a City';}"/>
+									<input type="submit" class="search-img" value="">
+								</div>
+				  			<a href="single.html" class="button push">View</a>
+				  		</div>
+			  	</div>
+			  </div>
+			  <div class="col-md-4 content-grid-3 bg-three">
+			  	<div class="content-grid-text">
+	  				{% for restaurant in restaurants %}
+						<h3>{{ restaurant.title }}</h3>
+						<p>{{ restaurant.text|linebreaksbr }}</p>
+						<!-- <p>{{ section.text|safe }}</p> -->
+					{% endfor %}
+			  		<h3>Finest Cuisine</h3>
+			  		<p> A Country's cuisine is also the Country's culture. Our website offers you a way to find the best restaurants of the city you are visiting. Let yourself be tempted by the best culinary delights</p>
+			  		<div class="ser-grid">
+		   				<a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-cutlery"> </a>
+		   			  </div>
+			  		<div class="contant-bwn">
+							<div class="search-wrapper">
+								<input type="text" value="Type a City" class="search-field" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type a City';}"/>
+								<input type="submit" class="search-img" value="">
+							</div>
+							<a href="single.html" class="button push">View</a>
+			  		</div>
+			  	</div>
+			  </div>
+			<div class="clearfix"> </div>
+			</div>
+		</div>
+</div>
+<!--contact end here-->
+<script>
+		$(document).ready(function () {
+		    size_li = $("#myList li").size();
+		    x=2;
+		    $('#myList li:lt('+x+')').show();
+		    $('#loadMore').click(function () {
+		        x= (x+1 <= size_li) ? x+1 : size_li;
+		        $('#myList li:lt('+x+')').show();
+		    });
+		    $('#showLess').click(function () {
+		        x=(x-1<0) ? 1 : x-1;
+		        $('#myList li').not(':lt('+x+')').hide();
+		    });
+		});
+	</script>
+
+<!--feature grid start here-->
+<div class="feature-grid">
+	<div class="container">
+		<div class="feature-grid-main">
+			<h5>Top Rated Houses</h5>
+		      <div class="load_more">
+					 <ul id="myList">
+					    <!-- These are our grid blocks -->
+					<li>
+					<div class="l_g">
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f1.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Loft in Sydney</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$150.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f2.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Home in Hwaii</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$220.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f3.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Loft in New York</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$120.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f4.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Apartment in Rome</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$100.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						 <div class="clearfix"> </div>
+					 </div>
+				    </li>
+					<li>
+					 <div class="l_g">
+					  <div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f5.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Apartment in Thailand</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$60.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f6.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Home in Santorini</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$150.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f7.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Loft in Hongkong</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$120.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f8.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Apartment in London</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$120.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						 <div class="clearfix"> </div>
+					</div>
+				</li>
+				<!---->
+				<li>
+					<div class="l_g">
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f1.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">House in Sydney</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$120.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f2.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Island </a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$120.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f3.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Newyork </a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$120.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f4.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Niagara Falls</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$120.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="l_g">
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f5.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Loft in Sydney</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$150.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f6.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Apartment in Santorini</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$190.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f7.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Loft in Hongokong</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$120.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+						<div class="col-md-3 fea-grid-1">
+							<div class="fea-grid-top">
+								<a href="single.html"><img src="images/f8.jpg" alt="" class="img-responsive"></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3><a href="single.html">Apartment in London</a></h3>
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>$90.00</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+					</div>
+				</li>
+				<div class="clearfix"> </div>
+			</ul>
+	<div id="loadMore">Load More</div>
+	 <div id="showLess">Show less</div>
+		</div>
+	</div>
+</div>
+</div>
+<!--feature grid end here-->
+<!--map start here-->
+<div class="map">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.51974787438!2d5.488526115970238!3d51.44861312282034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d8e08bdd34c1%3A0xc4a671b15dfb8dff!2sUniversit%C3%A0+tecnica+di+Eindhoven!5e0!3m2!1sit!2sin!4v1515013560872" frameborder="0" style="border:0" ></iframe>
+</div>
+
+{% endblock %}

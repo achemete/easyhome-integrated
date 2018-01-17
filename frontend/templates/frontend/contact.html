@@ -1,0 +1,65 @@
+{% extends 'frontend/index.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="contact">
+
+	<div class="container">
+		<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Announcement:</strong> This form will not send any message since we are not able to install any package (like smtp) in <strong>TU/e</strong>'s server.
+</div>
+		<div class="contact-main">
+			 <div class="contact-top">
+
+				{% for header in headers %}
+			 	<h3>{{ header.title }}</h3>
+			 	<p>{{ header.text|linebreaksbr }}</p>
+			 	{% endfor %}
+
+			 </div>
+			<div class="col-md-6 contact-left">
+			  <div class="contact-info">
+			  	
+				{% for information in informations %}
+				<h3>{{ information.title }}</h3>
+				<p>{{ information.text|linebreaksbr }}</p>
+				{% endfor %}
+			   </div>
+			  <div class= "con-addr">
+			  
+			  	{% for addresse in addresses %}
+			    <h4>{{ addresse.title }}</h4>
+			    <p>{{ addresse.text|linebreaksbr }}</p>
+			    {% endfor %}
+			  </div>
+			</div>
+			<div class="col-md-6 contact-right">
+			<form>
+				<div class="text">
+					<input type="text" placeholder="Name">
+				</div>
+				<div class="text">
+					<input type="text" placeholder="Email">
+				</div>
+				<div class="text">
+					<input type="text" placeholder="Subject">
+				</div>
+				<div class="text">
+				<textarea placeholder="Message" required=""></textarea>
+				</div>
+					<input type="submit" value="Send">
+		   </form>
+			</div>
+		 <div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--CONTACT END HERE-->
+<!--map start here-->
+<div class="map">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.51974787438!2d5.488526115970238!3d51.44861312282034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d8e08bdd34c1%3A0xc4a671b15dfb8dff!2sUniversit%C3%A0+tecnica+di+Eindhoven!5e0!3m2!1sit!2sin!4v1515013560872" frameborder="0" style="border:0" ></iframe>
+</div>
+
+
+{% endblock %}

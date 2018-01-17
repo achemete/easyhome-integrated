@@ -1,0 +1,180 @@
+{% extends 'frontend/index.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="contant">
+	<div class="container">
+		<div class="contant-main">
+			  <div class="col-md-4 content-grid-1 bg-one">
+			  	<div class="content-grid-text">
+			  		{% for apartment in apartments %}
+						<h3>{{ apartment.title }}</h3>
+						<p>{{ apartment.text|linebreaksbr }}</p>
+						<!-- <p>{{ section.text|safe }}</p> -->
+					{% endfor %}
+			  		
+			  		 <div class=" ser-grid">
+		   				<a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-home"> </a>
+		   			  </div>
+			  		<div class="contant-bwn">
+							<form action="/search/" method="get">
+							    <div class="search-wrapper">
+
+									<input type="text" value="Type a City" class="search-field" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type a City';}" name="name"/>
+									<input type="submit" class="search-img" value="">
+
+							    </div>
+
+   								<button class="button push" type="submit" href="" style="" >View</button>
+
+							</form>
+			  		</div>
+			  	</div>
+			  </div>
+			  <div class="col-md-4 content-grid-1 bg-two">
+			  	<div class="content-grid-text">
+			  		{% for attraction in attractions %}
+						<h3>{{ attraction.title }}</h3>
+						<p>{{ attraction.text|linebreaksbr }}</p>
+						<!-- <p>{{ section.text|safe }}</p> -->
+					{% endfor %}
+			  		
+			  		<div class=" ser-grid">
+		   				<a href="#" class="hi-icon hi-icon-archive glyphicon"><i class="fa fa-university fa-2x" style="icon"aria-hidden="true"></i></a>
+		   			  </div>
+							<div class="contant-bwn">
+								<form action="/searchA/" method="get">
+								<div class="search-wrapper">
+
+									<input type="text" value="Type a City" class="search-field" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type a City';}" name="name"/>
+									<input type="submit" class="search-img" value="">
+
+								</div>
+								<button class="button push" type="submit" href="" style="" >View</button>
+							</form>
+				  		</div>
+			  	</div>
+			  </div>
+			  <div class="col-md-4 content-grid-3 bg-three">
+			  	<div class="content-grid-text">
+	  				{% for restaurant in restaurants %}
+						<h3>{{ restaurant.title }}</h3>
+						<p>{{ restaurant.text|linebreaksbr }}</p>
+						<!-- <p>{{ section.text|safe }}</p> -->
+					{% endfor %}
+			  		
+			  		<div class="ser-grid">
+		   				<a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-cutlery"> </a>
+		   			  </div>
+			  		<div class="contant-bwn">
+							<form action="/searchR/" method="get">
+							<div class="search-wrapper">
+
+								<input type="text" value="Type a City" class="search-field" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type a City'; }" name="name"/>
+								<input type="submit" class="search-img" value="">
+
+							</div>
+							<button class="button push" type="submit" href="" style="" >View</button>
+						</form>
+			  		</div>
+			  	</div>
+			  </div>
+			<div class="clearfix"> </div>
+			</div>
+		</div>
+</div>
+<!--contact end here-->
+<script>
+		$(document).ready(function () {
+		    size_li = $("#myList li").size();
+		    x=4;
+		    $('#myList li:lt('+x+')').show();
+		    $('#loadMore').click(function () {
+		        x= (x+4 <= size_li) ? x+4 : size_li;
+		        $('#myList li:lt('+x+')').show();
+		    });
+		    $('#showLess').click(function () {
+		        x=(x-4<0) ? 1 : x-4;
+		        $('#myList li').not(':lt('+x+')').hide();
+		    });
+		});
+	</script>
+
+<!--feature grid start here-->
+<div class="feature-grid">
+	<div class="container">
+		<div class="feature-grid-main">
+			<h5>Top Rated Houses</h5>
+
+		      <div class="load_more">
+					 <ul id="myList">
+						 	{% for a in accomodations %}
+					    <!-- These are our grid blocks -->
+					<form action="/single/" method="get">
+					<li>
+
+					<div class="l_g">
+
+
+
+						<div class="col-md-3 fea-grid-1">
+
+							<div class="fea-grid-top">
+								<a href="{% url 'frontend:single' %}?id={{a.id}}"><img src={{a.image}} class="img-responsive"></img></a>
+							</div>
+							<div class="fea-grid-bottom">
+								<h3 style="color:white;"><a href="{% url 'frontend:single' %}?id={{a.id}}">{{a.title}}</a></h3>
+
+								<div class="fea-grid-left">
+									<p>Rental from:</p>
+									<p>City:</p>
+									<p>Guests:</p>
+								</div>
+								<div class="fea-grid-right">
+									<p>{{a.price}}&euro;</p>
+									<p>{{a.city}}</p>
+									<p>{{a.guests}}</p>
+								</div>
+								<div class="fea-grid-center">
+									<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+									<span class="fa fa-star checked"></span>
+									<span class="fa fa-star checked"></span>
+									<span class="fa fa-star checked"></span>
+									<span class="fa fa-star checked"></span>
+									<span class="fa fa-star"></span>
+									<p style="color:white">4.1 average based on 254 reviews.</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						  <div class="clearfix"> </div>
+						  </input>
+						</div>
+
+
+						</li>
+					</form>
+					{%endfor%}
+
+
+
+
+				<div class="clearfix"> </div>
+
+			</ul>
+
+	<div id="loadMore">Load More</div>
+
+	<div id="showLess">Show less</div>
+		</div>
+	</div>
+</div>
+</div>
+<!--feature grid end here-->
+<!--map start here-->
+<div class="map">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.51974787438!2d5.488526115970238!3d51.44861312282034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d8e08bdd34c1%3A0xc4a671b15dfb8dff!2sUniversit%C3%A0+tecnica+di+Eindhoven!5e0!3m2!1sit!2sin!4v1515013560872" frameborder="0" style="border:0" ></iframe>
+</div>
+
+{% endblock %}

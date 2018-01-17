@@ -1,0 +1,266 @@
+body {
+    font-family: Arial;
+    max-width: 100%; /* Max width */
+    color: #7f7f7f;
+}
+
+.slider {
+  width: 100%!important;
+  height: 500px;
+  padding: 0px!important;
+  margin-bottom: 20px;
+}
+
+.image-slider {
+  height: 100%;
+}
+
+.carousel {
+  height: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.item {
+  height: 100%;
+}
+
+.item img {
+  height: 100%;
+}
+
+.book-button {
+  width: 25%;
+}
+
+.book-button input {
+  width: 100%;
+  height: 45px;
+  background-color: #3e8fba;
+  color: white;
+}
+
+.book-button input:hover {
+  background-color: #faa026;
+  transition: 0.3s;
+}
+
+.glyphicon-chevron-left {
+  margin-left: -50px!important;
+}
+
+.glyphicon-chevron-right {
+  margin-right: -50px!important;
+}
+
+.house-details {
+  width: 80%;
+  margin: auto;
+
+}
+.house-title h1, .house-title p {
+  margin-bottom: 2px;
+  margin-top: 0px
+}
+
+.house-overview-wrapper{
+  width: 90%;
+  margin-left: auto;
+  margin-bottom: 27px;
+}
+
+.house-overview {
+  width: 88.9%;
+  margin: auto;
+  height: auto;
+  display: inline-flex;
+}
+
+.house-title {
+  color: #faa026;
+  width: 75%;
+}
+
+.house-title p {
+  color: #7f7f7f;
+}
+
+.house-main-details .fa{
+  font-size: 15px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.house-services h3,
+.house-extra-info h3,
+h3 {
+  color: white;
+  margin-top: 25px;
+
+  text-align: center;
+  top: 1px;
+}
+
+.wrapper {
+  height: 30px;
+  width: 100%;
+  background-color: #faa026;
+}
+
+.wrapper h3 {
+  color: white;
+}
+
+.house-rules p,
+.house-extra-info p{
+  margin-top: 15px;
+}
+
+.services-details {
+  width: 100%;
+  display: flex;
+}
+
+.service-details-left,
+.service-details-right {
+  width: 50%;
+}
+
+.service-details-right .fa,
+.service-details-left .fa  {
+  font-size: 20px;
+  width: 100%;
+  margin-top: 18px;
+  margin-bottom: 5px;
+}
+
+.house-reviews {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.house-location {
+  height: 470px;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+h3 {
+  color: white;
+  margin-bottom: 8px;
+}
+
+.heading {
+    font-size: 25px;
+    margin-right: 25px;
+}
+
+.fa {
+    font-size: 25px;
+}
+
+.checked {
+    color: orange;
+}
+
+/* Three column layout */
+.side {
+    float: left;
+    width: 15%;
+    margin-top:10px;
+}
+
+.middle {
+    margin-top:10px;
+    float: left;
+    width: 70%;
+}
+
+/* Place text to the right */
+.right {
+    text-align: right;
+}
+
+/* Clear floats after the columns */
+.stars:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.stars {
+  margin: 0px!important;
+}
+
+/* The bar container */
+.bar-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
+}
+
+/* Individual bars */
+.bar-5 {width: 60%; height: 18px; background-color: #4CAF50;}
+.bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
+.bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
+.bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
+.bar-1 {width: 15%; height: 18px; background-color: #f44336;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+    .side, .middle {
+        width: 100%;
+    }
+    .right {
+        display: none;
+    }
+}
+
+.element {
+  margin-left: 2%;
+}
+
+.elem-img img{
+  width: 90%;
+  margin-bottom: -9px;
+}
+
+.elem-description {
+  background-color: #3e8fba;
+  color: white;
+  width: 90%;
+  height: 120px;
+}
+
+.elem-title {
+  text-align: center;
+}
+
+.elem-title p, .elem-title h3 {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  margin-left: 0px!important;
+}
+
+.elem-description p,
+.elem-description h3 {
+  margin-left: 5px;
+}
+
+
+
+.near-services h1 {
+  color: #faa026;
+  margin-left: 1.98%;
+  width: 95.7%;
+  border-bottom: 1px solid grey;
+
+}

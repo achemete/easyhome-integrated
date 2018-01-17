@@ -1,0 +1,52 @@
+{% extends 'backend/backend.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<link href="{% static '../static/css/backendStyle.css' %}" rel="stylesheet">    
+
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Announcement:</strong> Your submissions will be reviewed before these appear in the results.
+</div>
+
+<h4>Accomodations management</h4>
+          
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="div-square">
+    <a href="{% url 'backend:house_create' %}">
+      <i class="fa fa-plane fa-3x"></i>
+      <h5><strong>Create</strong> new apartment</h5>
+    </a>
+  </div>
+</div>
+
+<div>
+  <p> &nbsp; </p>
+</div>
+
+<h4>Apartments submitted by registered users</h4>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Publisher</th>
+      <th style="text-align: center" scope="col">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for section in apartments %}
+    <tr>
+      <th scope="row">{{ section.pk }}</th>
+      <td><a href="{% url 'backend:house_edit' pk=section.pk %}">{{ section.title }}</td>
+      <td>{{ section.published_date }}</td>
+      <td>@{{ section.author }}</td>
+      <td style="text-align: center"> <a class="glyphicon glyphicon-pencil" alt="Edit {{ section.title }}" href="{% url 'backend:house_edit' pk=section.pk %}"></a>
+        <a class="glyphicon glyphicon-trash" href="{% url 'backend:house_remove' pk=section.pk %}"></a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,123 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Easy House - Backend</title>
+	
+		<!-- CSS Shts -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- <link href="{% static '../static/css/styles.css' %}" rel="stylesheet"> -->
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+		<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
+		<!-- script references -->
+		<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</head>
+	<body>
+<!-- header -->
+<div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{% url 'backend:backend_home' %}">EasyHouse - Backend</a> 
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> {{request.user.username}} <span class="caret"></span></a>
+					<ul id="g-account-menu" class="dropdown-menu" role="menu">
+						<li><a href="#">My Profile</a></li>
+						<li><a href="{% url 'frontend:password_reset' %}">Change My Password</a></li>
+					</ul>
+				</li>
+				<li><a href="{% url 'frontend:logout' %}?next={% url 'accomodations' %}"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- /container -->
+</div>
+<!-- /Header -->
+
+<!-- Main -->
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3">
+			<!-- Left column -->
+			<a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Tools</strong></a>
+
+			<hr>
+
+			<ul class="nav nav-stacked">
+				<li><a href="{% url 'accomodations' %}"><i class="glyphicon glyphicon-share-alt"></i> Go to EasyHouse Site</a></li>
+				<li class="active"> <a href="{% url 'backend:backend_home' %}"><i class="glyphicon glyphicon-home"></i> EasyHouse Backend</a></li>
+				
+				<li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu"><strong>Operations</strong> <i class="glyphicon glyphicon-chevron-down"></i></a>
+					<ul class="nav nav-stacked collapse in" id="userMenu">
+						<li><a href="{% url 'backend:operations' %}"><i class="fa fa-window-restore fa-1"></i> Overview</a></li>
+						<li><a href="{% url 'backend:backend_ops_apartments' %}"><i class="fa fa-building-o fa-1"></i> Apartments submitted</a></li>
+						<li><a href="{% url 'backend:backend_ops_landing' %}"><i class="fa fa-plane fa-1"></i> Landing</a></li>
+						<li><a style="pointer-events: none; cursor: default;" href="{% url 'backend:operations' %}"><i class="fa fa-bed fa-1"></i> Accomodations (static)</a></li>
+						<li><a style="pointer-events: none; cursor: default;" href="{% url 'backend:operations' %}"><i class="fa fa-cutlery fa-1"></i> Restaurants (static)</a></li>
+						<li><a style="pointer-events: none; cursor: default;" href="{% url 'backend:operations' %}"><i class="fa fa-camera-retro fa-1"></i> Attractions (static)</a></li>
+						<li><a style="pointer-events: none; cursor: default;" href="{% url 'backend:operations' %}"><i class="fa fa-heart-o fa-1"></i> Deals</a></li>
+						<li><a href="{% url 'backend:backend_ops_about' %}"><span class="fa fa-question-circle-o fa-1"></span> About</a></li>
+						<li><a href="{% url 'backend:backend_ops_contact' %}"><i class="glyphicon glyphicon glyphicon-envelope"></i> Contact</a></li>
+					</ul>
+					<li><a href="{% url 'backend:staff_accounts_abuse' %}"><i class="glyphicon glyphicon-user"></i> Users management</a></li>
+					<li><a href="{% url 'frontend:logout' %}"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+				</li>
+				<li class="nav-header">
+					<a href="#" data-toggle="collapse" data-target="#menu3"> Social Media <i class="glyphicon glyphicon-chevron-right"></i></a>
+					<ul class="nav nav-stacked collapse" id="menu3">
+						<li><a href=""><i style="color: #3b5998" class="fa fa-facebook "></i> Facebook</a></li>
+						<li><a href=""><i style="color: #00aced	" class="fa fa-twitter"></i> Twitter</a></li>
+					</ul>
+				</li>
+			</ul>
+
+			<hr>
+
+			<a href="#"><strong><i class="glyphicon glyphicon-link"></i> Resources</strong></a>
+
+		</div>
+		<!-- /col-3 -->
+		<div class="col-sm-9">
+
+			<!-- column 2 -->
+			
+			<a href="#"><strong><i class="glyphicon glyphicon-dashboard"></i> Welcome, {{request.user.username}} </strong></a>
+			<hr>
+			{% block content %}
+			{% endblock %}
+			<hr>
+
+		</div>
+		<!--/col-span-9-->
+	</div>
+</div>
+<!-- /Main -->
+
+<footer class="text-center">
+	<p>Easy House - All rights reserved</p>
+</footer>
+
+</body>
+</html>

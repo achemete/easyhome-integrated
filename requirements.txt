@@ -1,0 +1,17 @@
+coreapi==2.3.3
+coreschema==0.0.4
+defusedxml==0.4.1
+Django==1.11.9
+django-filter==0.11.0
+django-fsm==2.3.0
+django-guardian==1.4.1
+django-haystack==2.4.1
+djangorestframework==3.4.0
+djangorestframework-gis==0.10.1
+Pillow==5.0.0
+pytz==2017.2
+virtualenv==15.0.1
+virtualenv-clone==0.2.5
+virtualenvwrapper==4.3.1
+django-ckeditor==5.4.0
+django-js-asset==0.1.1

@@ -1,0 +1,17 @@
+
+<html>
+<head>
+</head>
+
+<body>
+
+
+{%for nam in accomodations%}
+	{% if nam.city == name %}
+		{{nam.city}}
+		{{nam.title}}
+        {% endif %}
+{%endfor%}
+</body>
+
+</html>

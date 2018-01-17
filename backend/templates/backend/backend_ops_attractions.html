@@ -1,0 +1,53 @@
+{% extends 'backend/backend.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h4>Home - Left Column</h4>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Publisher</th>
+      <th scope="col">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for section in sections %}
+    <tr>
+      <th scope="row">{{ section.pk }}</th>
+      <td><a href="{% url 'home_detail' pk=section.pk %}">{{ section.title }}</td>
+      <td>{{ section.published_date }}</td>
+      <td>@{{ section.author }}</td>
+      <td> <a class="glyphicon glyphicon-pencil" alt="Edit {{ section.title }}" href="{% url 'back_home_edit' pk=section.pk %}"></a>
+        <a class="glyphicon glyphicon-trash" href="{% url 'back_home_remove' pk=section.pk %}"></a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h4>Home - Right Column</h4>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Publisher</th>
+      <th scope="col">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for section in sectionsR %}
+    <tr>
+      <th scope="row">{{ section.pk }}</th>
+      <td><a href="{% url 'homeR_detail' pk=section.pk %}">{{ section.title }}</td>
+      <td>{{ section.published_date }}</td>
+      <td>@{{ section.author }}</td>
+      <td> <a class="glyphicon glyphicon-pencil" alt="Edit {{ section.title }}" href="{% url 'back_homeR_edit' pk=section.pk %}"></a>
+        <a class="glyphicon glyphicon-trash" href="{% url 'back_homeR_remove' pk=section.pk %}"></a></td>
+    </tr>
+    {% endfor %}
+   </table>
+{% endblock %}

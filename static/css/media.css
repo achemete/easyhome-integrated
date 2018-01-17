@@ -1,0 +1,36 @@
+@media (max-width:800px) {
+    #main {
+        padding: 7px
+    }
+    .col-left,
+    .col-right {
+        width: 100%;
+        margin: 0 auto
+    }
+    .counterInner {
+        width: 60%
+    }
+    .content-wrapper {
+        display: inline;
+        padding: 1px;
+        margin: 0 auto
+    }
+    nav {
+        background-color: #fafafa;
+        text-align: center
+    }
+    .navbar-toggle {
+        background: url(../img/home.png);
+        background-repeat: no-repeat
+    }
+    .login-box {
+        width: 80%;
+        margin: 0 auto
+    }
+    .col-t34-right {
+        margin: 0 auto;
+        display: inline;
+        width: 50%;
+        padding: 5px
+    }
+}

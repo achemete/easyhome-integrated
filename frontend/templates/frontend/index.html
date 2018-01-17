@@ -1,0 +1,128 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EasyHouse | Travel made easy</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="{% static '../static/js/jquery-1.11.0.min.js' %}"></script>
+	<!-- Custom Theme files -->
+	<link href="{% static '../static/css/styleFront.css' %}" rel="stylesheet" type="text/css" media="all"/>
+	<link href="{% static '../static/css/hover.css' %}" rel="stylesheet" media="all">
+	<!-- Custom Theme files -->
+
+	<meta name="keywords" content="EasyHouse" />
+
+	<!--Google Fonts-->
+	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Hind:400,300,500,600,700' rel='stylesheet' type='text/css'>
+
+
+</head>
+<body>
+<!--header banner start here-->
+<nav class="navbar-default navbar navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			<a class="navbar-brand" href="{% url 'accomodations' %}">Easy Home</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<!-- <li><a id="home" href="/"><span class="glyphicon glyphicon-home"></span></a></li> -->
+					<li><a id="" href="{% url 'frontend:listAcc' %}"><i class="fa fa-bed fa-lg"></i> Accomodations</a></li>
+					<li><a id="" href="{% url 'frontend:ListR' %}"><i class="fa fa-cutlery fa-lg "></i> Restaurants</a></li>
+					<li><a id="" href="{% url 'frontend:ListA' %}"><i class="fa fa-camera-retro fa-lg"></i> Attractions</a></li>
+
+					<li><a style="color:red;pointer-events: none; cursor: default;" id="" href=""><i style="color:red" class="fa fa-heart-o fa-lg"></i> Deals</a></li>
+				</ul>
+
+				{% if user.is_authenticated %}
+					<ul class="nav navbar-nav navbar-right">
+						<li><a id="contact-form" href="{% url 'frontend:frontend_contact' %}"><i class="fa fa-envelope-o fa-lg"></i> Contact</a></li>
+						<li><a id="about" href="{% url 'frontend:frontend_about' %}"><i class="fa fa-question-circle-o fa-lg"></i> About</a></li>
+						<li><a id="login" href="{% url 'backend:backend_home' %}"><i class="fa fa-cogs fa-lg"></i> Backend</a></li>
+						<li><a id="login" href="{% url 'frontend:logout' %}?next={% url 'accomodations' %}"><i class="fa fa-sign-out fa-lg"></i> Log out</a></li>
+					</ul>
+				{% else %}
+					<ul class="nav navbar-nav navbar-right">
+						<li><a id="contact-form" href="{% url 'frontend:frontend_contact' %}"><i class="fa fa-envelope-o fa-lg"></i> Contact</a></li>
+						<li><a id="about" href="{% url 'frontend:frontend_about' %}"><i class="fa fa-question-circle-o fa-lg"></i> About</a></li>
+						<li><a id="signup" class="btn" href="{% url 'backend:signup' %}"><i class="fa fa-user-plus fa-lg"></i> Sign Up</a></li>
+						<li><a id="login" href="{% url 'frontend:login' %}?next={% url 'accomodations' %}"><i class="fa fa-sign-in fa-lg"></i> Login</a></li>
+					</ul>
+				{% endif %}
+
+			</div>
+		</div>
+	</nav>
+<section id="main">
+<!--header strip end here-->
+<!--contant start here-->
+{% block content %}
+{% endblock %}
+<!--map end here-->
+<footer>
+		<div class="container">
+			<div class="row">
+				<div style="color:white" class="col-sm-4 paddingtop-bottom info-footer">
+					<div class="logofooter">Easy House</div>
+					<p>Travel made easy</p>
+					<p><i class="fa fa-map-pin"></i> TU/e 5612 AZ Eindhoven</p>
+					<p><i class="fa fa-phone"></i> Phone (NL) : +31 040 247 9111</p>
+					<p><i class="fa fa-envelope"></i> E-mail : easyhouse@tue.nl</p>
+				</div>
+				<div class="col-sm-4 paddingtop-bottom">
+					<h6 class="heading7">GENERAL LINKS</h6>
+					<ul class="footer-ul">
+						<li><a href="{% url 'frontend:frontend_about' %}">Meet the team</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Terms & Conditions</a></li>
+						<li><a href="#">Frequently Ask Questions</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-4 paddingtop-bottom">
+					<h6 class="heading7">LATEST POST</h6>
+					<div class="post">
+						<p>Generated automatically parsing news through some API, to implement yet  <span>December 5,2017</span></p>
+						<p>Generated automatically parsing news through some API, to implement yet  <span>October 30,2017</span></p>
+						<p>Generated automatically parsing news through some API, to implement yet  <span>July 24,2017</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div class="copyright">
+		<div class="container">
+			<div class="col-md-6">
+				<p><span id="license">&copy; 2018 - Easy House - Travel made easy</span></p>
+			</div>
+			<div class="col-md-6">
+				<ul class="bottom_ul">
+					<li><a href="#">Easy Home</a></li>
+					<li><a href="{% url 'frontend:frontend_about' %}">About us</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Community</a></li>
+					<li><a id="fContact" href="{% url 'frontend:frontend_contact' %}">Contact us</a></li>
+					<li><a href="https://tue.nl" target="_blank">TU/e</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
